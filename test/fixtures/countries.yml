@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  visited: false
+  population: 
+  size: MyString
+  currency: MyString
+  language: MyString
+  bio: MyText
+  featured: false
+
+two:
+  name: MyString
+  visited: false
+  population: 
+  size: MyString
+  currency: MyString
+  language: MyString
+  bio: MyText
+  featured: false
