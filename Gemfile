@@ -49,3 +49,4 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem 'mysql2', '~> 0.3.12'
 gem 'puma', '~> 3.4.0'
+gem "twitter-bootstrap-rails"
