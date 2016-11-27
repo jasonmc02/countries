@@ -1,49 +1,83 @@
-<%= form_for(@country) do |f| %>
-  <% if @country.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved:</h2>
+<%= form_for @country, :html => { :class => "form-horizontal country" } do |f| %>
 
-      <ul>
-      <% @country.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @country.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @country.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
   </div>
-  <div class="field">
-    <%= f.label :visited %><br>
-    <%= f.check_box :visited %>
+  <div class="form-group">
+    <%= f.label :language, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <%= f.text_field :language, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:language) %>
   </div>
-  <div class="field">
-    <%= f.label :population %><br>
-    <%= f.text_field :population %>
+  <div class="form-group">
+    <%= f.label :currency, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <%= f.text_field :currency, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:currency) %>
   </div>
-  <div class="field">
-    <%= f.label :size %><br>
-    <%= f.text_field :size %>
+  <div class="form-group">
+    <%= f.label :visited, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10" style="padding-top: 6px;">
+      <%= f.check_box :visited %>
+    </div>
+    <%=f.error_span(:visited) %>
   </div>
-  <div class="field">
-    <%= f.label :currency %><br>
-    <%= f.text_field :currency %>
+  <!-- <div class="form-group">
+    <%= f.label :population, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :population, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:population) %>
   </div>
-  <div class="field">
-    <%= f.label :language %><br>
-    <%= f.text_field :language %>
+  <div class="form-group">
+    <%= f.label :size, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :size, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:size) %>
   </div>
-  <div class="field">
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
+  <div class="form-group">
+    <%= f.label :bio, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :bio, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:bio) %>
   </div>
-  <div class="field">
-    <%= f.label :featured %><br>
-    <%= f.check_box :featured %>
+  <div class="form-group">
+    <%= f.label :featured, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :featured, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:featured) %>
+  </div> -->
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                countries_path, :class => 'btn btn-default' %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>
